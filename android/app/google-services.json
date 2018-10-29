@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "74897130477",
+    "firebase_url": "https://ab-money-6963a.firebaseio.com",
+    "project_id": "ab-money-6963a",
+    "storage_bucket": "ab-money-6963a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74897130477:android:67686dbd9424a4a9",
+        "android_client_info": {
+          "package_name": "com.bomkeen.app.abmoney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74897130477-a05av58rroshoqh3sm9nb50v0ug86csa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPW_6UeWmZABYHnNJ_xDNWh2s2wg1nfX4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
