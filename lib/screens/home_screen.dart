@@ -167,12 +167,29 @@ class _HomeScreenState extends State<HomeScreen> {
                           )
                         ],
                       ),
-                      Text('$balance',
-                          style: TextStyle(
-                            color: Colors.pinkAccent,
-                            fontSize: 50.00,
-                          )),
-                      Icon()
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Text('$balance',
+                                  style: TextStyle(
+                                    color: Colors.pinkAccent,
+                                    fontSize: 50.00,
+                                  )),
+                            ],
+                          ),
+                          Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.monetization_on,
+                                size: 50.00,
+                                color: Colors.pinkAccent,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ],
                   ),
                 ),
