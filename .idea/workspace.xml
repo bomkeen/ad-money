@@ -9,7 +9,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f284fee-adc6-49dc-a15f-bfd37fb6cb90" name="Default" comment="" />
+    <list default="true" id="6f284fee-adc6-49dc-a15f-bfd37fb6cb90" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -50,8 +52,8 @@
       <file leaf-file-name="add_outcome.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/screens/add_outcome.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state>
+              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -62,7 +64,7 @@
       <file leaf-file-name="add_screen.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/screens/add_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
+            <state relative-caret-position="22">
               <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -74,8 +76,8 @@
       <file leaf-file-name="home_screen.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/screens/home_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+            <state relative-caret-position="346">
+              <caret line="174" column="27" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="27" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -109,6 +111,9 @@
       <find>bottomNavBar</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -136,6 +141,7 @@
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -303,9 +309,9 @@
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50378215" side_tool="true" weight="0.35478547" />
-      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.49924356" weight="0.27062705" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" x="-19" y="79" width="1322" height="548" id="Run" order="2" sideWeight="0.49621785" visible="true" weight="0.26237625" />
+      <window_info active="true" anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.49924356" visible="true" weight="0.22442244" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" x="-19" y="79" width="1322" height="548" id="Run" order="2" sideWeight="0.49621785" weight="0.3349835" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.5511551" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.32838285" />
@@ -615,26 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens/add_outcome.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screens/add_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/screens/home_screen_temp.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1474">
@@ -655,10 +641,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens/add_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens/add_outcome.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/screens/home_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="51" column="19" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="19" />
+        <state relative-caret-position="346">
+          <caret line="174" column="27" selection-start-line="174" selection-start-column="27" selection-end-line="174" selection-end-column="27" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

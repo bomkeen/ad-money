@@ -53,15 +53,31 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  String formattedDate =
-      DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
-
   @override
   Widget build(BuildContext context) {
+    DateTime _date =
+        DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
+    var strDate = new DateFormat.MMMMd('th_TH')
+        .format(new DateTime(_date.year, _date.month, _date.day));
+//      DateTime date = '$strDate ${_date.year + 543}';
+    strDate = '$strDate ${_date.year + 543}';
+    print('$strDate');
     return ListView(
       children: <Widget>[
-        Row(
-          children: <Widget>[Text('$formattedDate')],
+        SizedBox(
+          height: 10.00,
+        ),
+        Card(
+          margin: EdgeInsets.all(20.00),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'วันที่ $strDate',
+                style: TextStyle(fontSize: 20.00),
+              )
+            ],
+          ),
         ),
         Container(
           padding: EdgeInsets.all(30.00),
@@ -120,14 +136,48 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
           ],
         ),
+        SizedBox(
+          height: 40.00,
+        ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Text(
-              '$balance',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 40.00, color: Colors.red),
-            ),
+            Container(
+              padding: EdgeInsets.all(10.00),
+              width: MediaQuery.of(context).size.width,
+              height: 200.00,
+              child: Card(
+                shape: Border.all(color: Colors.pinkAccent),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+//                    top: 8.0,
+//                    bottom: 8.0,
+//                    left: 64.0,
+                      ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'ยอดงินคงเหลือ',
+                            style: TextStyle(color: Colors.pink),
+                          )
+                        ],
+                      ),
+                      Text('$balance',
+                          style: TextStyle(
+                            color: Colors.pinkAccent,
+                            fontSize: 50.00,
+                          )),
+                      Icon()
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         )
       ],
