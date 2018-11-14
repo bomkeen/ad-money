@@ -10,6 +10,8 @@ class AddScreen extends StatefulWidget {
 
 class _AddScreenState extends State<AddScreen> {
   var id;
+  DateTime Date;
+  String strDate;
 //  DateTime date;
   final _formkey = GlobalKey<FormState>();
   DatabaseHelper databaseHelper = DatabaseHelper.internal();
@@ -17,16 +19,37 @@ class _AddScreenState extends State<AddScreen> {
   TextEditingController ctrDate = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    DateTime _currentDate;
+    int _year = DateTime.now().year;
+    int _month = DateTime.now().month;
+    int _day = DateTime.now().day;
+    String formattedDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+    Future<Null> _showDatePicker() async {
+      final DateTime picked = await showDatePicker(
+          locale: const Locale('th'),
+          context: context,
+          initialDate: DateTime(_year, _month, _day),
+          firstDate: new DateTime(1920, 1, 1),
+          lastDate: new DateTime(_year, _month, _day));
+      if (picked != null && picked != _currentDate) {
+        setState(() {
+          var strDate = new DateFormat.MMMMd('th_TH')
+              .format(new DateTime(picked.year, picked.month, picked.day));
+          strDate = '$strDate ${picked.year + 543}';
+          Date = picked;
+        });
+      }
+    }
+
     Future<Null> saveData() async {
       print(ctrMoney.text);
-//      print('testsave');
       DateTime _date =
           DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
       var strDate = new DateFormat.MMMMd('th_TH')
           .format(new DateTime(_date.year, _date.month, _date.day));
-//      DateTime date = '$strDate ${_date.year + 543}';
       strDate = '$strDate ${_date.year + 543}';
       print('$strDate');
+      String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
       if (_formkey.currentState.validate()) {
         Map list = {
@@ -81,6 +104,21 @@ class _AddScreenState extends State<AddScreen> {
                         key: _formkey,
                         child: Column(
                           children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  '$formattedDate',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                                FlatButton(
+                                    onPressed: () => _showDatePicker(),
+                                    child: Text(
+                                      'เลืกวันที่',
+                                      style: TextStyle(fontSize: 20.0),
+                                    ))
+                              ],
+                            ),
                             Row(
                               children: <Widget>[
                                 Expanded(

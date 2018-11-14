@@ -53,6 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  String formattedDate =
+      DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
     DateTime _date =

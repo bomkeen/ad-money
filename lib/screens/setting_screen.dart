@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ab_money/utils/database_helper.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -6,6 +7,7 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  DatabaseHelper databaseHelper = DatabaseHelper.internal();
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -44,6 +46,18 @@ class _SettingScreenState extends State<SettingScreen> {
                   title: Text('เปลี่ยนรหัสผ่าน'),
                   subtitle: Text('จัดการรหัสผ่านการเข้าใช้งานapp'),
                   trailing: Icon(Icons.keyboard_arrow_right)),
+              ListTile(
+                leading: Icon(
+                  Icons.delete_forever,
+                  color: Colors.red,
+                ),
+                title: Text('ลบฐานข้อมูล'),
+                trailing: IconButton(
+                    icon: Icon(Icons.keyboard_arrow_right),
+                    onPressed: () {
+                      databaseHelper.removeDb();
+                    }),
+              )
             ],
           ),
         ),

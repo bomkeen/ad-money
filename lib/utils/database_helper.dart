@@ -59,6 +59,15 @@ class DatabaseHelper {
     return await dbClient.rawQuery(sql, [id]);
   }
 
+  Future removeDb() async {
+    io.Directory documentDirectory = await getApplicationDocumentsDirectory();
+
+    String path = join(documentDirectory.path, 'money.db');
+    deleteDatabase(path);
+
+    print('Remove Database ok!!!');
+  }
+
   Future getSum() async {
     var dbClient = await getDb();
     var sql = '''
