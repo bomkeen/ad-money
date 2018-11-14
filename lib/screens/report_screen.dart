@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:ab_money/utils/database_helper.dart';
 
@@ -35,6 +36,10 @@ class _ReportScreenState extends State<ReportScreen> {
 //      ),
       body: ListView.builder(
           itemBuilder: (context, int index) {
+//            DateTime dateshow = items[index]['date'];
+            var dateshow = new DateFormat.MMMMd('th_TH')
+                .format(new DateTime(items[index]['date']));
+//            DateTime myDatetime = new DateTime();
             return ListTile(
 //                onTap: () async {
 //                  var response = await Navigator.push(
@@ -46,7 +51,8 @@ class _ReportScreenState extends State<ReportScreen> {
 //                    getMembers();
 //                  }
 //                },
-                title: Text('${items[index]['date']}'),
+
+                title: Text(dateshow),
                 subtitle: Text(
                     '${items[index]['income']}----${items[index]['outcome']}'),
                 trailing: IconButton(

@@ -25,7 +25,6 @@ class _AddScreenState extends State<AddScreen> {
     int _year = DateTime.now().year;
     int _month = DateTime.now().month;
     int _day = DateTime.now().day;
-
     Future<Null> _showDatePicker() async {
       final DateTime picked = await showDatePicker(
           locale: const Locale('th'),
@@ -117,10 +116,11 @@ class _AddScreenState extends State<AddScreen> {
                                 ),
                                 FlatButton(
                                     onPressed: () => _showDatePicker(),
-                                    child: Text(
-                                      'เลืกวันที่',
-                                      style: TextStyle(fontSize: 20.0),
-                                    ))
+                                    child: Icon(
+                                      Icons.date_range,
+                                      color: Colors.pink,
+                                      size: 40.00,
+                                    )),
                               ],
                             ),
                             Row(
