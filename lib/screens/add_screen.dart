@@ -10,20 +10,22 @@ class AddScreen extends StatefulWidget {
 
 class _AddScreenState extends State<AddScreen> {
   var id;
-  DateTime Date;
-  String strDate;
-//  DateTime date;
+//  DateTime Date;
+  var strDate =
+      '${(DateFormat.MMMMd('th_TH').format(DateTime.now()))} ${DateTime.now().year + 543}';
+
   final _formkey = GlobalKey<FormState>();
   DatabaseHelper databaseHelper = DatabaseHelper.internal();
   TextEditingController ctrMoney = TextEditingController();
-  TextEditingController ctrDate = TextEditingController();
+  String formattedDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
     DateTime _currentDate;
     int _year = DateTime.now().year;
     int _month = DateTime.now().month;
     int _day = DateTime.now().day;
-    String formattedDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+
     Future<Null> _showDatePicker() async {
       final DateTime picked = await showDatePicker(
           locale: const Locale('th'),
@@ -33,29 +35,31 @@ class _AddScreenState extends State<AddScreen> {
           lastDate: new DateTime(_year, _month, _day));
       if (picked != null && picked != _currentDate) {
         setState(() {
-          var strDate = new DateFormat.MMMMd('th_TH')
+          strDate = new DateFormat.MMMMd('th_TH')
               .format(new DateTime(picked.year, picked.month, picked.day));
           strDate = '$strDate ${picked.year + 543}';
-          Date = picked;
+          formattedDate = DateFormat('dd-MM-yyyy')
+              .format(DateTime(picked.year, picked.month, picked.day));
+          print('$formattedDate formatteddate on datepicker');
+          print('$strDate str date on datepicker');
         });
       }
     }
 
     Future<Null> saveData() async {
       print(ctrMoney.text);
-      DateTime _date =
-          DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
-      var strDate = new DateFormat.MMMMd('th_TH')
-          .format(new DateTime(_date.year, _date.month, _date.day));
-      strDate = '$strDate ${_date.year + 543}';
-      print('$strDate');
-      String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
+//      DateTime _date =
+//          DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
+//      var strDate = new DateFormat.MMMMd('th_TH')
+//          .format(new DateTime(_date.year, _date.month, _date.day));
+//      strDate = '$strDate ${_date.year + 543}';
+//      print('$strDate');
 
       if (_formkey.currentState.validate()) {
         Map list = {
           'income': ctrMoney.text,
           'outcome': '0',
-          'date': '$strDate',
+          'date': formattedDate,
 //          'id': id
         };
         await databaseHelper.saveData(list);
@@ -108,7 +112,7 @@ class _AddScreenState extends State<AddScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                  '$formattedDate',
+                                  strDate,
                                   style: TextStyle(fontSize: 20.0),
                                 ),
                                 FlatButton(

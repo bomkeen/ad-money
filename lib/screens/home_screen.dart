@@ -53,17 +53,16 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  String formattedDate =
-      DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
+//  String formattedDate =
+//      DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
     DateTime _date =
         DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
     var strDate = new DateFormat.MMMMd('th_TH')
         .format(new DateTime(_date.year, _date.month, _date.day));
-//      DateTime date = '$strDate ${_date.year + 543}';
     strDate = '$strDate ${_date.year + 543}';
-    print('$strDate');
+    print('$strDate --->strdate on homescreen.dart');
     return ListView(
       children: <Widget>[
         SizedBox(
