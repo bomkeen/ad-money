@@ -37,9 +37,8 @@ class _ReportScreenState extends State<ReportScreen> {
       body: ListView.builder(
           itemBuilder: (context, int index) {
 //            DateTime dateshow = items[index]['date'];
-            var dateshow = new DateFormat.MMMMd('th_TH')
-                .format(new DateTime(items[index]['date']));
-//            DateTime myDatetime = new DateTime();
+            String dateshow =
+                DateFormat('dd-MM-yyyy').format(items[index]['date']);
             return ListTile(
 //                onTap: () async {
 //                  var response = await Navigator.push(
