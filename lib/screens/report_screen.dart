@@ -11,6 +11,8 @@ class ReportScreen extends StatefulWidget {
 class _ReportScreenState extends State<ReportScreen> {
   DatabaseHelper databaseHelper = DatabaseHelper.internal();
   List items = [];
+  var strDate;
+
   Future getItems() async {
     var res = await databaseHelper.getList();
     print(res);
@@ -36,9 +38,6 @@ class _ReportScreenState extends State<ReportScreen> {
 //      ),
       body: ListView.builder(
           itemBuilder: (context, int index) {
-//            DateTime dateshow = items[index]['date'];
-            String dateshow =
-                DateFormat('dd-MM-yyyy').format(items[index]['date']);
             return ListTile(
 //                onTap: () async {
 //                  var response = await Navigator.push(
@@ -51,7 +50,10 @@ class _ReportScreenState extends State<ReportScreen> {
 //                  }
 //                },
 
-                title: Text(dateshow),
+                title: Text(DateFormat.yMMMd('th_TH').format(new DateTime(
+                    int.parse(items[index]['year']) + 543,
+                    int.parse(items[index]['month']),
+                    int.parse(items[index]['day'])))),
                 subtitle: Text(
                     '${items[index]['income']}----${items[index]['outcome']}'),
                 trailing: IconButton(

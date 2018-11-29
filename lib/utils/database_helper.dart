@@ -46,7 +46,7 @@ class DatabaseHelper {
   Future getList() async {
     var dbClient = await getDb();
     var sql = '''
-    SELECT * from list
+    SELECT income,outcome,substr(date, 1, 2) as day,substr(date, 4, 2) as month,substr(date, 7, 4) as year,date from list
     ''';
     return await dbClient.rawQuery(sql);
   }
