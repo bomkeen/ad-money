@@ -10,30 +10,56 @@ class AddOutcome extends StatefulWidget {
 
 class _AddOutcomeState extends State<AddOutcome> {
   var id;
-//  DateTime date;
+  var strDate =
+      '${(DateFormat.MMMMd('th_TH').format(DateTime.now()))} ${DateTime.now().year + 543}';
   final _formkey = GlobalKey<FormState>();
   DatabaseHelper databaseHelper = DatabaseHelper.internal();
   TextEditingController ctrMoney = TextEditingController();
-  TextEditingController ctrDate = TextEditingController();
+  String formattedDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+
   @override
   Widget build(BuildContext context) {
+    DateTime _currentDate;
+    int _year = DateTime.now().year;
+    int _month = DateTime.now().month;
+    int _day = DateTime.now().day;
+    Future<Null> _showDatePicker() async {
+      final DateTime picked = await showDatePicker(
+          locale: const Locale('th'),
+          context: context,
+          initialDate: DateTime(_year, _month, _day),
+          firstDate: new DateTime(1920, 1, 1),
+          lastDate: new DateTime(_year, _month, _day));
+      if (picked != null && picked != _currentDate) {
+        setState(() {
+          strDate = new DateFormat.MMMMd('th_TH')
+              .format(new DateTime(picked.year, picked.month, picked.day));
+          strDate = '$strDate ${picked.year + 543}';
+          formattedDate = DateFormat('dd-MM-yyyy')
+              .format(DateTime(picked.year, picked.month, picked.day));
+          print('$formattedDate formatteddate on datepicker');
+          print('$strDate str date on datepicker');
+        });
+      }
+    }
+
     Future<Null> saveData() async {
       print(ctrMoney.text);
 //      print('testsave');
-      DateTime _date =
-          DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
-      var strDate = new DateFormat.MMMMd('th_TH')
-          .format(new DateTime(_date.year, _date.month, _date.day));
+//      DateTime _date =
+//          DateTime.parse(DateFormat('yyyy-MM-dd').format(DateTime.now()));
+//      var strDate = new DateFormat.MMMMd('th_TH')
+      // .format(new DateTime(_date.year, _date.month, _date.day));
 //      DateTime date = '$strDate ${_date.year + 543}';
-      strDate = '$strDate ${_date.year + 543}';
-      print('$strDate');
-      print('save outcome complate');
+//      strDate = '$strDate ${_date.year + 543}';
+//      print('$strDate');
+//      print('save outcome complate');
 
       if (_formkey.currentState.validate()) {
         Map list = {
           'income': '0',
           'outcome': ctrMoney.text,
-          'date': '$strDate',
+          'date': formattedDate,
 //          'id': id
         };
         await databaseHelper.saveoutcome(list);
@@ -82,6 +108,22 @@ class _AddOutcomeState extends State<AddOutcome> {
                         key: _formkey,
                         child: Column(
                           children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  strDate,
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                                FlatButton(
+                                    onPressed: () => _showDatePicker(),
+                                    child: Icon(
+                                      Icons.date_range,
+                                      color: Colors.pink,
+                                      size: 40.00,
+                                    )),
+                              ],
+                            ),
                             Row(
                               children: <Widget>[
                                 Expanded(
